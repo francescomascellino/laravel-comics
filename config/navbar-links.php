@@ -6,7 +6,7 @@ return [
     ],
     1 => [
         'text' => 'comics',
-        'path' => '#',
+        'path' => 'comics',
     ],
     2 => [
         'text' => 'movies',

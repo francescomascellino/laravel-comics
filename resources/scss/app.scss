@@ -1,9 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 
-.container {
-    border: 2px solid red;
-}
-
 // VARIABLES
 $dc-light: #ffffff;
 $dc-info: #0282f9;
@@ -25,6 +21,12 @@ h6 {
 
 // HEADER
 
+.dc-additional-sites {
+    background-color: $dc-info;
+    color: $dc-light;
+    font-weight: bold;
+}
+
 .navbar-nav a.nav-link {
     font-weight: bold;
     color: $dc-secondary;
@@ -35,6 +37,12 @@ h6 {
 .dc-active {
     color: $dc-info !important;
     border-bottom: 5px solid $dc-info !important;
+}
+
+.dc-search {
+    font-weight: bold !important;
+    color: $dc-secondary !important;
+    border: none !important;
 }
 
 .dc-jumbotron {

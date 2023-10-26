@@ -7,8 +7,8 @@
 
     <title>Laravel Comics{{ Route::currentRouteName() == 'welcome' ? ' - Welcome' : ''}}</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    {{-- FONT AWESOME --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Styles -->
     @vite('resources/js/app.js')
@@ -17,14 +17,25 @@
 
 <body>
 
-    {{-- <header> --}}
+    <header>
+
+        <div class="container-fluid dc-additional-sites">
+
+            <div class="row justify-content-center">
+                <div class="col-8  d-flex justify-content-end align-items-center py-1 ">
+                    <span class="px-5">DC POWER&trade;VISA&reg;</span>
+                    <span>ADDITIONAL DC SITES <i class="fa-solid fa-caret-down"></i></span> 
+                </div> 
+            </div>
+
+        </div>
 
         <div class="container-fluid">
 
             <div class="row justify-content-center">
     
                 <div class="col-8 p-0">
-    
+
                     <nav class="navbar navbar-expand-lg py-0">
     
                         <a class="navbar-brand flex-grow-1" href="#"><img src="{{Vite::asset('resources/img/dc-logo.png')}}"></a>
@@ -33,14 +44,19 @@
     
                             @foreach (config('navbar-links') as $link)
 
-                                {{-- TERNARY NON WORKING --}}
-                                <a class="nav-link px-4 py-5" href="{{$link['path']}}"
-                                class="{{ $link['text'] === 'comics' ? 'dc-active' : ''}}">
+                                {{-- iN REALTA' COMICS NON SAREBBE LA HOME IN UN SITO COMPLETO, QUINDI IL LINK DOVREBBE ESSERE href="{{ route($link['path']) }}" --}}
+                                <a class="nav-link px-4 py-5  {{ Route::currentRouteName() === $link['path'] ? 'dc-active' : ''}}" href="#">
                                 {{$link['text']}}</a>
 
                             @endforeach
                             
-    
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <div class="d-flex">
+                                <input type="search" class="form-control" placeholder="Search..." class="dc-search">
+                                <i class="fa fa-search align-self-center"></i>
+                            </div>
                         </div>
     
                     </nav>
@@ -66,7 +82,7 @@
     
         </div>
 
-    {{-- </header> --}}
+    </header>
 
 
     <main class="">
