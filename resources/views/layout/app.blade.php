@@ -29,11 +29,17 @@
     
                         <a class="navbar-brand flex-grow-1" href="#"><img src="{{Vite::asset('resources/img/dc-logo.png')}}"></a>
     
-                        <div class="navbar-nav d-flex justify-content-between text-uppercase" v-for="(link, index) in navLinks">
+                        <div class="navbar-nav d-flex justify-content-between text-uppercase"">
     
-                            <a class="nav-link px-4 py-5" href="link.path" @click="turnActive(index)"
-                                class="(index == activeLink ? 'dc-active' : '')">
-                                link.text</a>
+                            @foreach (config('navbar-links') as $link)
+
+                                {{-- TERNARY NON WORKING --}}
+                                <a class="nav-link px-4 py-5" href="{{$link['path']}}"
+                                class="{{ $link['text'] === 'comics' ? 'dc-active' : ''}}">
+                                {{$link['text']}}</a>
+
+                            @endforeach
+                            
     
                         </div>
     
@@ -78,11 +84,11 @@
                 <div class="col-8 p-0">
     
                     <div class="d-flex align-items-center justify-content-evenly flex-wrap p-4 dcMenuEl">
-    
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias porro tenetur quis deleniti voluptas, eius sit nemo odio magnam, totam at ea assumenda quasi tempora eos, nihil iure itaque voluptatibus.</p>
-    
-                        {{-- <a :href="link.path" class="text-uppercase m-3" v-for="link in servicesLinks"><img
-                                :src="getImageUrl(link.img)" alt=""><span class="ms-4">{{ link.text }}</span></a> --}}
+
+                        @foreach (config('services-links') as $link)
+                            <a href="{{$link['path']}}" class="text-uppercase m-3" ><img
+                                src="{{Vite::asset($link['img'])}}" alt=""><span class="ms-4">{{ $link['text'] }}</span></a>
+                        @endforeach
     
                     </div>
     
@@ -132,6 +138,7 @@
 
                             {{-- <a :href="link.path" class="ms-3" v-for="link in socialLinks"><img :src="getImageUrl(link.img)"
                                     :alt="link.name"></a> --}}
+                                    <li class="text-capitalize"><a href="">TEST</a>
 
                         </div>
 
