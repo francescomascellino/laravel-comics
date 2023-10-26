@@ -10,8 +10,9 @@
 
                 @foreach (config('navbar-links') as $link)
 
-                    {{-- iN REALTA' COMICS NON SAREBBE LA HOME IN UN SITO COMPLETO, QUINDI IL LINK DOVREBBE ESSERE href="{{ route($link['path']) }}" --}} <a class="nav-link px-4 py-5  {{ Route::currentRouteName() === $link['path'] ? 'dc-active' : ''}}" href="{{ $link['path'] === 'comics' ? Route('comics') : '#'}}">
-                {{$link['text']}}</a>
+                <a class="nav-link px-4 py-5  {{ Route::currentRouteName() === $link['path'] ? 'dc-active' : ''}}" href="{{Route($link['path'])}}">
+                {{$link['text']}}
+                </a>
 
                 @endforeach
 
