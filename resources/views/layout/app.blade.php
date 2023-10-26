@@ -110,17 +110,22 @@
 
                     <div class="col-8 pt-5 d-flex flex-column flex-wrap align-content-start dc-bigLogo">
 
-                        <div class="col-2 dc-listContainer" v-for="(element) in footerLinks">
+                        @foreach (config('footer-links') as $element)
+                            <div class="col-2 dc-listContainer">
 
-                            {{-- <h5 class="text-uppercase">{{ element.title }}</h5> --}}
+                                <h5 class="text-uppercase">{{ $element['title'] }}</h5>
 
-                            <ol class="list-unstyled">
-                                {{-- <li v-for="(link) in element.links" key="index" class="text-capitalize"><a
-                                        :href="link.path">{{ link.text }}</a></li> --}}
-                                <li class="text-capitalize"><a href="">TEST</a>
-                            </ol>
+                                <ol class="list-unstyled">
 
-                        </div>
+                                    @foreach ($element['links'] as $link)
+                                        <li class="text-capitalize"><a href="{{$link['path']}}">{{$link['text']}}</a></li>
+                                    @endforeach
+
+                                </ol>
+
+                            </div>
+
+                        @endforeach
 
                     </div>
 
@@ -136,9 +141,9 @@
 
                             <h4 class="text-uppercase m-0">follow us</h4>
 
-                            {{-- <a :href="link.path" class="ms-3" v-for="link in socialLinks"><img :src="getImageUrl(link.img)"
-                                    :alt="link.name"></a> --}}
-                                    <li class="text-capitalize"><a href="">TEST</a>
+                            @foreach (config('social-links') as $link)
+                            <a href="{{$link['path']}}" class="ms-3"><img src="{{Vite::asset($link['img'])}}" alt="{{$link['name']}}"></a>
+                            @endforeach
 
                         </div>
 
