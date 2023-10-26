@@ -19,3 +19,16 @@ Route::get('/', function () {
 
     return view('comics', compact('comics'));
 })->name('comics');
+
+// USANDO UN VALORE PASSATO NELLA ROUTE E' POSSIBILE CREARE PAGINE DINAMICHE SE IL VALORE CORRISPONDE A UN ELEMENTO DI UN ARRAY.
+// IN QUESTO CASO CREIAMO UNA ROUTE /comic_detailsNUMERO_ID
+// https://laravel.com/docs/10.x/routing#generating-urls-to-named-routes
+Route::get('/comic_details{id}', function ($id) {
+
+    $comics = config('comics');
+
+    // IN QUESTO CASO VIENE DEFINITO CON $id IL FUMETTO DENTRO COMICS ALLA POSIZIONE $id
+    $comic = $comics[$id];
+
+    return view('comic_details', compact('comic'));
+})->name('comic_details');

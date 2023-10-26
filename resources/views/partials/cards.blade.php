@@ -1,4 +1,4 @@
-@foreach ($comics as $comic)
+@foreach ($comics as $id => $comic)
     
 <div class="col-2">
 
@@ -9,6 +9,8 @@
         </div>
 
         <div class="card-body p-0 pt-3">
+            {{-- SI PUO' PASSARE UN VALORE NELLA ROUTE --}}
+            <a href="{{ route('comic_details', $id) }}">LINK AL FUMETTO CON ID {{$id}}</a>
 
             <p class="card-title text-uppercase">{{ $comic['series'] }}</p>
             <p class="card-text text-capitalize">{{ $comic['type'] }}, price: {{ $comic['price'] }}</p>
