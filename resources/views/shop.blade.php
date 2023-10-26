@@ -9,7 +9,7 @@
 
         <div class="col-8 py-5 position-relative">
 
-<h1>{{Route::currentRouteName()}}</h1>
+            <h1>{{Str::ucfirst(Route::currentRouteName())}}</h1>
 
         </div>
 
