@@ -39,10 +39,21 @@ h6 {
     border-bottom: 5px solid $dc-info !important;
 }
 
-.dc-search {
-    font-weight: bold !important;
-    color: $dc-secondary !important;
-    border: none !important;
+input#dc-search {
+    font-weight: bold;
+    color: $dc-secondary;
+    border: none;
+    border-radius: 0%;
+
+}
+
+// NOT WORKING
+input#dc-search::placeholder {
+    text-align: right !important;
+}
+
+.dc-searchContainer {
+    border-bottom: 3px solid $dc-info !important;
 }
 
 .dc-jumbotron {
@@ -55,6 +66,11 @@ h6 {
         background-color: $dc-info;
     }
 
+}
+
+.dc-currentSeries {
+    background-color: $dc-info;
+    margin-left: 5rem;
 }
 
 // MAIN
