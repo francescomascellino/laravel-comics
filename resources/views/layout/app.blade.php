@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel Comics</title>
+    <title>Laravel Comics{{ Route::currentRouteName() == 'welcome' ? ' - Welcome' : ''}}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
 
     {{-- <header> --}}
 
-        <div class="container m-auto">
+        <div class="container-fluid">
 
             <div class="row justify-content-center">
     
@@ -69,9 +69,32 @@
 
     </main>
 
+        {{-- MENU --}}
+
+        <div class="container-fluid dc-menuCont">
+
+            <div class="row justify-content-center">
+    
+                <div class="col-8 p-0">
+    
+                    <div class="d-flex align-items-center justify-content-evenly flex-wrap p-4 dcMenuEl">
+    
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias porro tenetur quis deleniti voluptas, eius sit nemo odio magnam, totam at ea assumenda quasi tempora eos, nihil iure itaque voluptatibus.</p>
+    
+                        {{-- <a :href="link.path" class="text-uppercase m-3" v-for="link in servicesLinks"><img
+                                :src="getImageUrl(link.img)" alt=""><span class="ms-4">{{ link.text }}</span></a> --}}
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+
     {{-- FOOTER --}}
 
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="row flex-column justify-content-flex-end dc-footerCont">
 
@@ -88,6 +111,7 @@
                             <ol class="list-unstyled">
                                 {{-- <li v-for="(link) in element.links" key="index" class="text-capitalize"><a
                                         :href="link.path">{{ link.text }}</a></li> --}}
+                                <li class="text-capitalize"><a href="">TEST</a>
                             </ol>
 
                         </div>
@@ -121,26 +145,6 @@
 
     </div>
 
-    {{-- MENU --}}
-
-    <div class="container dc-menuCont">
-
-        <div class="row justify-content-center">
-
-            <div class="col-8 p-0">
-
-                <div class="d-flex align-items-center justify-content-evenly flex-wrap p-4 dcMenuEl">
-
-                    {{-- <a :href="link.path" class="text-uppercase m-3" v-for="link in servicesLinks"><img
-                            :src="getImageUrl(link.img)" alt=""><span class="ms-4">{{ link.text }}</span></a> --}}
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
 
 </body>
 

@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+.container {
+    border: 2px solid red;
+}
+
 // VARIABLES
 $dc-light: #ffffff;
 $dc-info: #0282f9;
