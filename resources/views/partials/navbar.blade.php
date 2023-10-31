@@ -10,7 +10,7 @@
 
                 @foreach (config('navbar-links') as $link)
 
-                <a class="nav-link px-4 py-5  {{ Route::currentRouteName() === $link['path'] ? 'dc-active' : ''}}" href="{{Route($link['path'])}}">
+                <a class="nav-link px-4 py-5 {{ Route::currentRouteName() === $link['path'] ? 'dc-active' : ''}}" href="{{Route($link['path'])}}">
                 {{$link['text']}}
                 </a>
 
